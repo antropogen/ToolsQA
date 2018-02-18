@@ -25,7 +25,7 @@ namespace ToolsQA.Selenium_Basics
         }
 
         [Test]
-        public void TestSteps()
+        public void PrintingToConsole()
         {
             driver.Navigate().GoToUrl("http://Store.DemoQA.com");
             String Title = driver.Title;
