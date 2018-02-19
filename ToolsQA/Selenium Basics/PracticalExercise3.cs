@@ -43,6 +43,7 @@ namespace ToolsQA.Selenium_Basics
         }
 
         [Test]
+        //Practice Exercise 1
         //Launch new Browser
         //Open URL http://toolsqa.wpengine.com/automation-practice-form/
         //Type Name & Last Name(Use Name locator)
@@ -69,6 +70,30 @@ namespace ToolsQA.Selenium_Basics
             SubmitButton.Submit();
 
         }
+
+        [Test]
+        //Practice Exercise 2
+        //Launch new Browser
+        //Open URL http://toolsqa.wpengine.com/automation-practice-form/
+        //Click on the Link “Partial Link Test” (Use ‘PatialLinkTest’ locator and search by ‘Partial’ word)
+        //Identify Submit button with ‘TagName’, convert it in to string and print it on the console
+        //Click on the Link “Link Test” (Use ‘LinkTest’ locator)
+
+        public void WebElementByPartialLink()
+        {
+            driver.Navigate().GoToUrl("http://toolsqa.wpengine.com/automation-practice-form/");
+            IWebElement PartialLink = driver.FindElement(By.PartialLinkText("Partial"));
+            PartialLink.Click();
+            Console.WriteLine(">>> Partical Link Test Pass");
+
+            IWebElement SubmitButton = driver.FindElement(By.TagName("button"));
+            String NameOfButton = SubmitButton.ToString();
+            Console.WriteLine("\n>>> The Submit Button is following : " + NameOfButton);
+            IWebElement LinkTest = driver.FindElement(By.LinkText("Link Test"));
+            LinkTest.Click();
+            Console.WriteLine("\n>>> Link Test Pass");
+
+        }           
 
         [TearDown]
         public void EndTest()
